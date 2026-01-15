@@ -1,12 +1,9 @@
-import random
+import secrets
 import string
 
-print("Welcome to Password Generator")
-length = int(input("How long would you like your password to be?: "))
-letters = string.ascii_letters+string.digits+string.punctuation
-password = ""
-for i in range(length):
-    password += random.choice(letters)
+length = int(input("Enter password length: "))
 
-print("Generated password:",password)
+chars = string.ascii_letters + string.digits + string.punctuation
+password = ''.join(secrets.choice(chars) for _ in range(length))
 
+print("Secure Password:", password)
